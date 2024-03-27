@@ -187,6 +187,7 @@ public abstract class Player {
         }
     }
 
+
     /**
      * Retrieves the last action taken by the player in the current game state.
      * This method updates the game state, executes the player's turn based on the updated state,
@@ -216,7 +217,6 @@ public abstract class Player {
         isBig = false;
         isFold = false;
         isAllIn = false;
-        //isBet = false;
         isBetActive = false;
 
         // By default, a player can call or check in the new hand.
@@ -364,7 +364,7 @@ public abstract class Player {
      * @return True if there is an active bet, false otherwise.
      */
     protected boolean isBetActive() {
-        return isBetActive;
+        return state.isActiveBet();
     }
 
     public boolean isActionRemaining() {
@@ -439,6 +439,8 @@ public abstract class Player {
      * @return True if the player should raise, false otherwise.
      */
     protected abstract boolean shouldRaise();
+
+    //protected abstract boolean shouldRaisePotSize();
 
     /**
      * Abstract method to determine if the player should go all-in.
